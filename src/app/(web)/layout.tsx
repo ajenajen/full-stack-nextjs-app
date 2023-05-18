@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import { Inter } from "next/font/google";
 import AppHeader from "@/components/_client/_layout/AppHeader";
 import AppFooter from "@/components/_client/_layout/AppFooter";
@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} min-h-screen`}>
         <AppHeader />
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
         <AppFooter />
       </body>
     </html>

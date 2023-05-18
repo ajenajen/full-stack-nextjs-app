@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import AppLogo from "@/components/_client/_layout/AppLogo";
 
 export default function AppHeader() {
@@ -10,8 +10,11 @@ export default function AppHeader() {
   return (
     <nav className="flex p-4 bg-violet-700 text-black">
       <AppLogo />
-      <h1 className="px-4">AppHeader</h1>
-      <button className="text-green-300" onClick={showMsg}>
+      <div className="grid grid-cols-4 gap-4 mx-4">
+        <Link href="/">Home</Link>
+        <Link href="/blog">Blog</Link>
+      </div>
+      <button className="text-green-300 ms-auto" onClick={showMsg}>
         Click me!
       </button>
     </nav>

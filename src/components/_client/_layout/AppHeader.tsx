@@ -8,7 +8,7 @@ export default function AppHeader() {
   };
 
   return (
-    <nav className="flex p-4">
+    <nav className="flex p-4 bg-violet-700 text-black">
       <AppLogo />
       <h1 className="px-4">AppHeader</h1>
       <button className="text-green-300" onClick={showMsg}>

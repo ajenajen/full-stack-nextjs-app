@@ -1,9 +1,8 @@
 import "../globals.css";
-import { Inter } from "next/font/google";
+import Head from "next/head";
+import ThemeProviders from "@/components/_client/ThemeProviders";
 import AppHeader from "@/components/_client/_layout/AppHeader";
 import AppFooter from "@/components/_client/_layout/AppFooter";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -17,10 +16,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen`}>
-        <AppHeader />
-        <main className="min-h-screen">{children}</main>
-        <AppFooter />
+      <Head>
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+      </Head>
+      <body>
+        <ThemeProviders>
+          <AppHeader />
+          <main className="min-h-screen">{children}</main>
+          <AppFooter />
+        </ThemeProviders>
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { Button } from "@mantine/core";
 import AppLogo from "@/components/_client/_layout/AppLogo";
 
 export default function AppHeader() {
@@ -14,9 +15,14 @@ export default function AppHeader() {
         <Link href="/">Home</Link>
         <Link href="/blog">Blog</Link>
       </div>
-      <button className="text-green-300 ms-auto" onClick={showMsg}>
+      <Button
+        className="ml-auto"
+        color="red"
+        variant="outline"
+        onClick={showMsg}
+      >
         Click me!
-      </button>
+      </Button>
     </nav>
   );
 }

@@ -1,4 +1,6 @@
 "use client";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   createStyles,
   Header,
@@ -53,9 +55,18 @@ const useStyles = createStyles((theme) => ({
     ...theme.fn.hover({
       backgroundColor:
         theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
+          ? theme.colors.dark[7]
           : theme.colors.gray[0],
     }),
+  },
+
+  linkActive: {
+    fontWeight: 800,
+    fontSize: theme.fontSizes.sm,
+    paddingLeft: theme.spacing.md,
+    paddingRight: theme.spacing.md,
+    color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
+      .color,
   },
 
   subLink: {
@@ -134,6 +145,7 @@ const mockdata = [
 ];
 
 export default function AppHeader() {
+  const pathname = usePathname();
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
@@ -167,9 +179,20 @@ export default function AppHeader() {
             spacing={0}
             className={classes.hiddenMobile}
           >
-            <a href="#" className={classes.link}>
+            <Link
+              href="/"
+              className={pathname === "/" ? classes.linkActive : classes.link}
+            >
               Home
-            </a>
+            </Link>
+            <Link
+              href="/about"
+              className={
+                pathname === "/about" ? classes.linkActive : classes.link
+              }
+            >
+              About
+            </Link>
             <HoverCard
               width={600}
               position="bottom"
@@ -178,7 +201,12 @@ export default function AppHeader() {
               withinPortal
             >
               <HoverCard.Target>
-                <a href="#" className={classes.link}>
+                <Link
+                  href="/feature"
+                  className={
+                    pathname === "/feature" ? classes.linkActive : classes.link
+                  }
+                >
                   <Center inline>
                     <Box component="span" mr={5}>
                       Features
@@ -188,7 +216,7 @@ export default function AppHeader() {
                       color={theme.fn.primaryColor()}
                     />
                   </Center>
-                </a>
+                </Link>
               </HoverCard.Target>
 
               <HoverCard.Dropdown sx={{ overflow: "hidden" }}>
@@ -224,17 +252,11 @@ export default function AppHeader() {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="#" className={classes.link}>
-              Learn
-            </a>
-            <a href="#" className={classes.link}>
-              Academy
-            </a>
           </Group>
 
           <Group className={classes.hiddenMobile}>
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button>Log in</Button>
+            <Button variant="default">Sign up</Button>
           </Group>
 
           <Burger

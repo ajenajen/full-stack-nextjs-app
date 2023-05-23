@@ -25,7 +25,7 @@ export default function RootLayout({
       <body>
         <ThemeProviders>
           <AppHeader />
-          <main className="min-h-screen">{children}</main>
+          <main>{children}</main>
           <AppFooter />
         </ThemeProviders>
       </body>

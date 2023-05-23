@@ -1,11 +1,12 @@
 "use client";
-import { Title, Button } from "@mantine/core";
+import HeroImage from "./HeroImage";
+import FeaturesSection from "./FeaturesSection";
 
 export default function HomePage() {
   return (
     <div>
-      <Title>Hello Page Home</Title>
-      <Button>Click me</Button>
+      <HeroImage />
+      <FeaturesSection />
     </div>
   );
 }

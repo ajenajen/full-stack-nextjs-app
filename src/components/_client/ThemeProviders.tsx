@@ -18,6 +18,7 @@ export default function ThemeProviders({ children }: { children: ReactNode }) {
         withGlobalStyles
         withNormalizeCSS
         theme={{
+          colorScheme: "light",
           fontFamily: sarabun.style.fontFamily, //replace font theme
         }}
       >

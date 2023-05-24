@@ -282,9 +282,22 @@ export default function AppHeader() {
             color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
           />
 
-          <a href="#" className={classes.link}>
+          <Link
+            href="/"
+            className={pathname === "/" ? classes.linkActive : classes.link}
+            onClick={toggleDrawer}
+          >
             Home
-          </a>
+          </Link>
+          <Link
+            href="/about"
+            className={
+              pathname === "/about" ? classes.linkActive : classes.link
+            }
+            onClick={toggleDrawer}
+          >
+            About
+          </Link>
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
@@ -294,12 +307,6 @@ export default function AppHeader() {
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="#" className={classes.link}>
-            Learn
-          </a>
-          <a href="#" className={classes.link}>
-            Academy
-          </a>
 
           <Divider
             my="sm"
